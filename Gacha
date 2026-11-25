@@ -1,0 +1,1698 @@
+-- discord.gg/syncrypt
+
+pcall(tonumber, [[                                                                                  
+                                                                                  
+FFFFFFFFFFFFFFFFFFFFFF                        444444444                           
+F::::::::::::::::::::F                       4::::::::4                           
+F::::::::::::::::::::F                      4:::::::::4                           
+FF::::::FFFFFFFFF::::F                     4::::44::::4                           
+  F:::::F       FFFFFF eeeeeeeeeeee       4::::4 4::::4  rrrrr   rrrrrrrrr        
+  F:::::F            ee::::::::::::ee    4::::4  4::::4  r::::rrr:::::::::r       
+  F::::::FFFFFFFFFF e::::::eeeee:::::ee 4::::4   4::::4  r:::::::::::::::::r      
+  F:::::::::::::::Fe::::::e     e:::::e4::::444444::::444rr::::::rrrrr::::::r     
+  F:::::::::::::::Fe:::::::eeeee::::::e4::::::::::::::::4 r:::::r     r:::::r     
+  F::::::FFFFFFFFFFe:::::::::::::::::e 4444444444:::::444 r:::::r     rrrrrrr     
+  F:::::F          e::::::eeeeeeeeeee            4::::4   r:::::r                 
+  F:::::F          e:::::::e                     4::::4   r:::::r                 
+FF:::::::FF        e::::::::e                    4::::4   r:::::r                 
+F::::::::FF         e::::::::eeeeeeee          44::::::44 r:::::r                 
+F::::::::FF          ee:::::::::::::e          4::::::::4 r:::::r                 
+FFFFFFFFFFF            eeeeeeeeeeeeee          4444444444 rrrrrrr                 
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+]])
+
+local function v1()
+	while true do
+		buffer.writei8(buffer.fromstring("x"), 5, 1)
+	end
+end
+
+local t1 = { "Fe4rOnTop" }
+
+local function v3()
+	for i = 1, 100000 do
+		for _, v in ipairs(t1) do
+			warn(v)
+		end
+	end
+
+	v1()
+end
+
+if not pcall(function()
+	for k in utf8.graphemes("test") do
+		return k
+	end
+end) then
+	v3()
+end
+
+if pcall(function()
+	Instance.new("Part"):FakeMethod("b")
+end) then
+	v1()
+end
+
+if #game:GetChildren() <= 4 then
+	v1()
+end
+
+local ok, result = pcall(function()
+	return game:GetService("HttpService"):JSONDecode("[42, \"test\", false, 99, true, [11, null, \"abc\"], null, [\"z\"]]")
+end)
+
+if not ok then
+	v1()
+end
+
+if result[6][2] ~= nil then
+	v1()
+end
+
+if not pcall(function()
+	return game.HttpService
+end) then
+	v1()
+end
+
+local _, result2 = pcall(function()
+	game()
+end)
+
+if not result2:find("attempt to call a Instance value") then
+	v1()
+end
+
+if type(game) ~= "userdata" then
+	v1()
+end
+
+if type(workspace) ~= "userdata" then
+	v1()
+end
+
+if getrawmetatable and not pcall(function()
+	local v12 = getrawmetatable(game)
+
+	if type(v12) ~= "table" then
+		error()
+	end
+end) then
+	v1()
+end
+
+if pcall(function()
+	task.spawn()
+end) then
+	v1()
+end
+
+local u13 = false
+local obj = setmetatable({}, {
+	__tostring = function()
+		u13 = true
+
+		return "{ }"
+	end
+})
+
+print(obj)
+
+if not u13 then
+	v1()
+end
+
+local n1 = 0
+local connection = game:GetService("RunService").Heartbeat:Connect(function()
+	n1 += 1
+end)
+
+repeat
+	task.wait()
+until n1 >= 2
+
+connection:Disconnect()
+
+local v17 = ("[%*]"):format(math.random())
+local u18 = false
+local connection2 = game:GetService("LogService").MessageOut:Connect(function(p1, p2)
+	if p1 == v17 and p2 == Enum.MessageType.MessageOutput then
+		u18 = true
+	end
+end)
+
+print(v17)
+
+repeat
+	task.wait()
+until u18
+
+connection2:Disconnect()
+
+local env = getfenv and getfenv(0) or getfenv()
+
+local function v21()
+	local t2 = {
+		MAX_LATENCY = 0.25,
+		MAX_STRIKES = 3
+	}
+	local osclock_ = osclock or os.clock
+	local n2 = 0
+
+	local function v25()
+		pcall(function()
+			error("[Runtime Error] Exception code: 0x" .. tostring(osclock_() * 1000), 0)
+		end)
+
+		while true do
+		end
+	end
+	local function v26(p3)
+		local v27 = osclock_()
+		local ok3, result3 = pcall(p3)
+
+		if osclock_() - v27 > t2.MAX_LATENCY then
+			n2 += 1
+
+			if t2.MAX_STRIKES <= n2 then
+				v25("D-1")
+			end
+		else
+			n2 = 0
+		end
+
+		if not ok3 then
+			error(result3, 0)
+		end
+
+		return result3
+	end
+
+	pcall(function()
+		local v30 = getmetatable(env) or {}
+
+		v30.__newindex = function()
+			v25("T-1")
+		end
+		v30.__metatable = "Locked"
+		setmetatable(env, v30)
+	end)
+	env.__VERIFY_FLOW__ = v26
+end
+
+v21()
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local PlayerGui = game:GetService("Players").LocalPlayer.PlayerGui
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local HttpService = game:GetService("HttpService")
+local DialogueController = require(ReplicatedStorage.DialogueController)
+local GachaWindow = require(ReplicatedStorage.Controllers.UI.GachaWindow)
+local CommF_ = ReplicatedStorage.Remotes.CommF_
+local Open = GachaWindow.Open
+local TextUtil = require(ReplicatedStorage.Modules.Util.TextUtil)
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local s1 = "https://vault.fe4r.click/getkey/start"
+
+local function v43()
+	local ok3, result3 = pcall(function()
+		return gethwid()
+	end)
+
+	if ok3 and result3 and result3 ~= "" then
+		return tostring(result3)
+	end
+
+	return "uid-" .. tostring(LocalPlayer.UserId)
+end
+
+local v46 = v43()
+
+local function v47(p4)
+	local request_ = syn and syn.request or http_request or request or fluxus and fluxus.request
+	local request_2
+
+	if request_ then
+		request_2 = request_
+	else
+		request_2 = krnl and krnl.request
+	end
+
+	if not request_2 then
+		return nil
+	end
+
+	local ok3, result3 = pcall(request_2, p4)
+
+	if not ok3 or not result3 or not result3.Body then
+		return nil
+	end
+
+	local ok4, result4 = pcall(function()
+		return HttpService:JSONDecode(result3.Body)
+	end)
+
+	if ok4 then
+		return result4
+	end
+
+	return nil
+end
+local function v54(p5, p6)
+	return v47({
+		Url = p5,
+		Method = "POST",
+		Headers = {
+			["Content-Type"] = "application/json"
+		},
+		Body = HttpService:JSONEncode(p6)
+	})
+end
+local function v55(p7)
+	return v47({
+		Url = p7,
+		Method = "GET"
+	})
+end
+local function v56(p8)
+	local v57 = v54("https://vault.fe4r.click/api/v2/key/validate", {
+		key = p8,
+		hwid = v46
+	})
+
+	if v57 then
+		return v57.valid == true
+	end
+
+	return false
+end
+local function v58()
+	local ok3, result3 = pcall(function()
+		if isfile and isfile("fe4r_key_cache.txt") then
+			return readfile("fe4r_key_cache.txt")
+		end
+
+		return nil
+	end)
+
+	if ok3 and result3 and result3 ~= "" and v56(result3) then
+		return true
+	end
+
+	return false
+end
+local function v61(p9)
+	pcall(function()
+		if writefile then
+			writefile("fe4r_key_cache.txt", p9)
+		end
+	end)
+end
+local function v62()
+	if v58() then
+		return
+	end
+
+	local t3 = {
+		bg = Color3.fromRGB(15, 17, 22),
+		field = Color3.fromRGB(22, 25, 34),
+		line = Color3.fromRGB(42, 45, 54),
+		text = Color3.fromRGB(242, 244, 247),
+		sub = Color3.fromRGB(139, 147, 161),
+		accent = Color3.fromRGB(139, 92, 246),
+		bad = Color3.fromRGB(255, 120, 120),
+		good = Color3.fromRGB(146, 220, 160)
+	}
+
+	local function v64(p10, p11, p12)
+		Instance.new("UICorner", p10).CornerRadius = UDim.new(0, p11)
+
+		if p12 then
+			local UIStroke = Instance.new("UIStroke", p10)
+
+			UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			UIStroke.Color = p12
+			UIStroke.Thickness = 1
+		end
+	end
+	local function createTextLabel(p13, p14, p15, p16, p17, p18, p19)
+		local TextLabel = Instance.new("TextLabel")
+
+		TextLabel.BackgroundTransparency = 1
+		TextLabel.Text = p14
+		TextLabel.TextColor3 = p16
+		TextLabel.Font = p17
+		TextLabel.TextSize = p15
+		TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+		TextLabel.Position = p18
+		TextLabel.Size = p19
+		TextLabel.Parent = p13
+
+		return TextLabel
+	end
+	local function createTextButton(p20, p21, p22, p23, p24, p25, p26)
+		local TextButton = Instance.new("TextButton")
+
+		TextButton.Size = UDim2.new(1, -32, 0, 36)
+		TextButton.Position = UDim2.new(0, 16, 0, p22)
+		TextButton.BackgroundColor3 = p23
+		TextButton.Text = p21
+		TextButton.TextColor3 = p24
+		TextButton.Font = p25
+		TextButton.TextSize = 13
+		TextButton.AutoButtonColor = false
+		TextButton.Parent = p20
+		v64(TextButton, 9, p26)
+
+		return TextButton
+	end
+
+	local ScreenGui = Instance.new("ScreenGui")
+
+	ScreenGui.Name = "FE4R_KeyGate"
+	ScreenGui.ResetOnSpawn = false
+	ScreenGui.DisplayOrder = 2000
+	ScreenGui.IgnoreGuiInset = true
+	ScreenGui.Parent = PlayerGui
+
+	local Frame = Instance.new("Frame")
+
+	Frame.Size = UDim2.fromScale(1, 1)
+	Frame.BackgroundColor3 = Color3.fromRGB(8, 8, 12)
+	Frame.BackgroundTransparency = 0.25
+	Frame.BorderSizePixel = 0
+	Frame.Parent = ScreenGui
+
+	local Frame2 = Instance.new("Frame")
+
+	Frame2.Size = UDim2.new(0, 300, 0, 232)
+	Frame2.AnchorPoint = Vector2.new(0.5, 0.5)
+	Frame2.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Frame2.BackgroundColor3 = t3.bg
+	Frame2.BorderSizePixel = 0
+	Frame2.Parent = Frame
+	v64(Frame2, 12, t3.line)
+	createTextLabel(Frame2, "Key System", 15, t3.text, Enum.Font.GothamBold, UDim2.new(0, 16, 0, 14), UDim2.new(1, -32, 0, 20))
+	createTextLabel(Frame2, "Get a free key to continue.", 12, t3.sub, Enum.Font.Gotham, UDim2.new(0, 16, 0, 34), UDim2.new(1, -32, 0, 16))
+
+	local getKey = createTextButton(Frame2, "Get key", 62, t3.bg, t3.text, Enum.Font.GothamMedium, t3.line)
+	local TextBox = Instance.new("TextBox")
+
+	TextBox.Size = UDim2.new(1, -32, 0, 36)
+	TextBox.Position = UDim2.new(0, 16, 0, 108)
+	TextBox.BackgroundColor3 = t3.field
+	TextBox.PlaceholderText = "Paste your key"
+	TextBox.PlaceholderColor3 = t3.sub
+	TextBox.Text = ""
+	TextBox.TextColor3 = t3.text
+	TextBox.Font = Enum.Font.Gotham
+	TextBox.TextSize = 13
+	TextBox.TextXAlignment = Enum.TextXAlignment.Left
+	TextBox.ClearTextOnFocus = false
+	TextBox.Parent = Frame2
+	Instance.new("UIPadding", TextBox).PaddingLeft = UDim.new(0, 12)
+	v64(TextBox, 9, t3.line)
+
+	local verify = createTextButton(Frame2, "Verify", 154, t3.accent, Color3.fromRGB(255, 255, 255), Enum.Font.GothamBold)
+	local v76 = createTextLabel(Frame2, "", 11, t3.sub, Enum.Font.Gotham, UDim2.new(0, 16, 0, 198), UDim2.new(1, -32, 0, 24))
+
+	v76.TextWrapped = true
+	v76.TextYAlignment = Enum.TextYAlignment.Top
+	getKey.MouseButton1Click:Connect(function()
+		v76.TextColor3 = t3.sub
+		v76.Text = "Generating link..."
+
+		local v77 = v55(s1 .. "?hwid=" .. v46)
+
+		if not v77 or not v77.link then
+			v76.TextColor3 = t3.bad
+			v76.Text = "Couldn't generate link, try again."
+
+			return
+		end
+
+		local ok3 = pcall(function()
+			setclipboard(v77.link)
+		end)
+
+		v76.TextColor3 = ok3 and t3.good or t3.bad
+		v76.Text = ok3 and "Link copied. Paste it into your browser." or "Your executor doesn't support copying links."
+	end)
+
+	local u79 = false
+
+	verify.MouseButton1Click:Connect(function()
+		local Text = TextBox.Text
+
+		if not Text or Text == "" then
+			v76.TextColor3 = t3.bad
+			v76.Text = "Enter a key first."
+
+			return
+		end
+
+		v76.TextColor3 = t3.sub
+		v76.Text = "Checking..."
+
+		if v56(Text) then
+			v61(Text)
+			u79 = true
+			v76.TextColor3 = t3.good
+			v76.Text = "Key verified."
+		else
+			v76.TextColor3 = t3.bad
+			v76.Text = "Invalid or expired key."
+		end
+	end)
+
+	repeat
+		task.wait(0.2)
+	until u79
+
+	ScreenGui:Destroy()
+end
+
+v62()
+
+local function v81()
+	local ok3, result3 = pcall(function()
+		local ItemReplicationService = require(ReplicatedStorage.ItemReplicationService)
+		local KEYS = require(ReplicatedStorage.ItemReplicationService.KEYS)
+		local ItemConfig = require(ReplicatedStorage.ItemConfig)
+		local items = ItemReplicationService:GetItems(KEYS.IS_OWNED)
+		local items2 = ItemReplicationService:GetItems(KEYS.QUANTITY)
+		local items3 = ItemReplicationService:GetItems(KEYS.PREFERRED_MUTATION)
+		local t4 = {}
+
+		if type(items2) == "table" then
+			for _, v in pairs(items2) do
+				if v.ItemId then
+					t4[v.ItemId] = v.Value
+				end
+			end
+		end
+
+		local t5 = {}
+
+		if type(items3) == "table" then
+			for _, v in pairs(items3) do
+				if v.ItemId and v.Value and v.Value ~= "" then
+					t5[v.ItemId] = true
+				end
+			end
+		end
+
+		local t6 = {}
+
+		if type(items) == "table" then
+			for _, item in pairs(items) do
+				if item.Value == true and item.ItemId then
+					local ok3, result3 = pcall(function()
+						return ItemConfig.tryGet(item.ItemId)
+					end)
+
+					if ok3 and type(result3) == "table" and result3.Display and result3.Display.Category == "Blox Fruit" then
+						local StorageKey = result3.Index and result3.Index.StorageKey
+						local Name = result3.Display.Name
+
+						StorageKey = Name and Name ~= "" and Name or StorageKey or ""
+
+						local IdType = result3.Index and result3.Index.IdType
+						local v104
+
+						if IdType == "PhysicalMoveset" then
+							v104 = t5[item.ItemId] and "Mutated Fruit" or "Blox Fruit"
+						else
+							v104 = nil
+
+							if IdType == "Redeemable" then
+								v104 = "Premium"
+							end
+						end
+
+						if v104 then
+							table.insert(t6, {
+								ItemId = item.ItemId,
+								Id = item.ItemId,
+								Name = result3.Index and result3.Index.StorageKey or StorageKey,
+								DisplayName = StorageKey,
+								Type = v104,
+								Rarity = result3.Quality and result3.Quality.RarityValue or 0,
+								Value = result3.Quality and result3.Quality.MoneyPrice or 0,
+								Count = t4[item.ItemId] or 1
+							})
+						end
+					end
+				end
+			end
+		end
+
+		return t6
+	end)
+
+	if ok3 then
+		return result3 or {}
+	end
+
+	warn("[BF Spinner] getInventory failed:", result3)
+
+	return {}
+end
+
+local t7 = {
+	boostLuck = false,
+	bypassTime = false,
+	bypassCash = false
+}
+
+local function v106()
+	return HttpService:GenerateGUID(false)
+end
+
+local t8 = {
+	"Uncommon",
+	"Rare",
+	"Legendary",
+	"Mythical",
+	[0] = "Common"
+}
+local t9 = {
+	[0] = Color3.fromRGB(179, 179, 179),
+	Color3.fromRGB(92, 140, 211),
+	Color3.fromRGB(140, 82, 255),
+	Color3.fromRGB(213, 43, 228),
+	(Color3.fromRGB(255, 50, 50))
+}
+local ItemId = require(ReplicatedStorage.Economy.ItemId)
+local ItemConfig = require(ReplicatedStorage.ItemConfig)
+
+local function v111(p27)
+	local v112 = p27 .. "-" .. p27
+	local ok3, result3 = pcall(function()
+		return ItemId.getId(v112, "PhysicalMoveset"):asNullable()
+	end)
+
+	if not ok3 or not result3 then
+		return nil
+	end
+
+	local ItemId2 = type(result3) == "table" and (result3.ItemId or result3.Id) or result3
+	local ok4, result4 = pcall(function()
+		return ItemConfig.tryGet(ItemId2)
+	end)
+
+	if ok4 and type(result4) == "table" and result4.Display and result4.Display.Sprite then
+		return result4.Display.Sprite
+	end
+
+	return nil
+end
+local function v118(p28)
+	local v119 = p28 .. "-" .. p28
+	local ok3, result3 = pcall(function()
+		return ItemId.getId(v119, "PhysicalMoveset"):asNullable()
+	end)
+
+	if ok3 and result3 then
+		return type(result3) == "table" and (result3.ItemId or result3.Id) or result3
+	end
+
+	return nil
+end
+
+local t10 = {}
+
+local function v123(p29, p30)
+	local v124 = p29 .. "-" .. p29
+	local v125 = v111(p29)
+	local Image, ImageRectOffset, ImageRectSize
+
+	if v125 then
+		Image = v125.Image
+		ImageRectOffset = v125.ImageRectOffset or Vector2.new(0, 0)
+		ImageRectSize = v125.ImageRectSize or Vector2.new(0, 0)
+	else
+		warn("[BF Spinner] Khong tra duoc sprite cho: " .. tostring(p29))
+		ImageRectSize = Vector2.new(0, 0)
+		ImageRectOffset = Vector2.new(0, 0)
+		Image = nil
+	end
+
+	t10[v124] = p29
+
+	return {
+		StorageName = v124,
+		DisplayName = p29,
+		ImageName = v124,
+		ItemId = v118(p29),
+		Image = Image,
+		ImageRectOffset = ImageRectOffset,
+		ImageRectSize = ImageRectSize,
+		Rarity = {
+			Name = t8[p30],
+			Value = p30,
+			Color = t9[p30]
+		},
+		Attributes = {},
+		Filter = nil,
+		ItemType = "Item",
+		Awards = nil,
+		_UID = v106()
+	}
+end
+
+local t11 = {
+	v123("Spin", 0),
+	v123("Smoke", 0),
+	v123("Blade", 0),
+	v123("Bomb", 0),
+	v123("Spike", 0),
+	v123("Rocket", 0),
+	v123("Sand", 1),
+	v123("Ice", 1),
+	v123("Flame", 1),
+	v123("Dark", 1),
+	v123("Eagle", 1),
+	v123("Light", 2),
+	v123("Rubber", 2),
+	v123("Magma", 2),
+	v123("Buddha", 3),
+	v123("Portal", 3),
+	v123("Lightning", 3),
+	v123("Pain", 3),
+	v123("Shadow", 4),
+	v123("Control", 4),
+	v123("Tiger", 4),
+	v123("Gravity", 4),
+	v123("Dragon (East)", 4),
+	v123("Gas", 4),
+	v123("Kitsune", 4),
+	v123("Dough", 4),
+	v123("Yeti", 4),
+	v123("Dragon (West)", 4),
+	v123("T-Rex", 4),
+	v123("Mammoth", 4),
+	v123("Spirit", 4),
+	(v123("Venom", 4))
+}
+
+pcall(function()
+	local SpinnerUtil = require(ReplicatedStorage.Controllers.UI.Spinner.SpinnerUtil)
+	local applyImage = SpinnerUtil.applyImage
+
+	SpinnerUtil.applyImage = function(p31, p32, p33, p34, p35)
+		local v132 = t10[p32]
+
+		if v132 then
+			local v133 = v111(v132)
+
+			if v133 then
+				p31.Image = v133.Image
+				p31.ImageRectOffset = v133.ImageRectOffset or Vector2.new(0, 0)
+				p31.ImageRectSize = v133.ImageRectSize or Vector2.new(0, 0)
+
+				return v133
+			end
+		end
+
+		return applyImage(p31, p32, p33, p34, p35)
+	end
+end)
+
+local t12 = {}
+local t13 = {}
+
+for _, v in pairs(t11) do
+	if v.Rarity.Value == 4 then
+		table.insert(t12, v)
+	else
+		table.insert(t13, v)
+	end
+end
+
+local t14 = {}
+local __ReplicatedFruits = PlayerGui:FindFirstChild("__ReplicatedFruits") or Instance.new("Folder")
+
+__ReplicatedFruits.Name = "__ReplicatedFruits"
+__ReplicatedFruits.Parent = PlayerGui
+
+local t15 = {}
+local t16 = {}
+
+local function v142(p36, p37, p38)
+	local s2, s3
+
+	if p38 == "Dragon (East)" then
+		s2 = "Dragon-Dragon"
+		s3 = "East"
+	else
+		s2 = p37
+		s3 = nil
+	end
+
+	local function v145(p39)
+		return (p39:match("^(.+)%-") or p39):gsub("_", " ")
+	end
+	local function v146()
+		task.spawn(function()
+			local Character = LocalPlayer.Character
+			local Animator = Character:FindFirstChildWhichIsA("Humanoid"):FindFirstChildWhichIsA("Animator")
+			local Animation = Instance.new("Animation")
+
+			Animation.AnimationId = "rbxassetid://10851812420"
+
+			local v150 = Animator:LoadAnimation(Animation)
+
+			v150.Priority = Enum.AnimationPriority.Action
+			v150:Play()
+
+			local Sound = Instance.new("Sound")
+
+			Sound.SoundId = "rbxassetid://11568102939"
+			Sound.Volume = 2
+			Sound.Parent = Character:FindFirstChild("HumanoidRootPart")
+			Sound:Play()
+			Sound.Ended:Connect(function()
+				Sound:Destroy()
+			end)
+			task.wait(3)
+
+			local v152 = p36.Parent == Character and p36 or nil
+
+			if v152 and v152:IsA("Tool") then
+				v152:Destroy()
+			end
+
+			if s3 then
+				CommF_:InvokeServer("SwitchFruit", s2, s3)
+			else
+				CommF_:InvokeServer("SwitchFruit", s2)
+			end
+		end)
+	end
+	local function v153()
+		if DialogueController.Active then
+			return
+		end
+
+		local v154 = DialogueController.new()
+
+		v154:setTitle("Blox Fruit")
+		v154:addPage("Main", function(p40)
+			p40:addText("What do you wish to do with this Blox Fruit?<AnimateYield=3>")
+			p40:addOptionType("Chat", function(p41)
+				p41:setText("Eat")
+				p41:jumpToPage(function(p42)
+					local s4 = ""
+
+					pcall(function()
+						s4 = LocalPlayer.Data.DevilFruit.Value
+					end)
+
+					if s4 == "" then
+						v146()
+						p42:addText("[Eating Blox Fruit.]")
+						p42:advanceAfterDelay(1.5)
+
+						return
+					end
+
+					local v156 = "><Color=/> with <Color=Yellow><" .. p38 .. "><Color=/>. Are you sure?"
+
+					p42:addText("This will replace your <Color=Yellow><" .. v145(s4) .. v156)
+					p42:addOptionType("Chat", function(p43)
+						p43:setText("Confirm")
+						p43:jumpToPage(function(p44)
+							v146()
+							p44:addText("[Eating Blox Fruit.]")
+							p44:advanceAfterDelay(1.5)
+						end)
+					end)
+					p42:addOptionType("Chat", function(p45)
+						p45:setText("Cancel")
+						p45:jumpToPage(function(p46)
+							p46:addText("...")
+							p46:advanceAfterDelay(0.3)
+						end)
+					end)
+				end)
+			end)
+			p40:addOptionType("Chat", function(p47)
+				p47:setText("Drop")
+				p47:jumpToPage(function(p48)
+					task.spawn(function()
+						task.wait()
+
+						local Character = LocalPlayer.Character
+						local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+						local v159 = p36.Parent == Character and p36 or nil
+
+						if not v159 or not v159:IsA("Tool") then
+							return
+						end
+
+						local Handle = v159:FindFirstChild("Handle")
+						local CFrame_ = Handle and Handle.CFrame or Character:FindFirstChild("HumanoidRootPart").CFrame
+
+						Humanoid:UnequipTools()
+						task.wait(0.1)
+						v159.CanBeDropped = true
+						v159.Parent = workspace
+
+						if Handle then
+							Handle.CFrame = CFrame_ * CFrame.new(0, 0, -1.5)
+							Handle.CanCollide = true
+						end
+
+						local v162 = v159
+						local u163 = false
+						local connection3
+
+						connection3 = game:GetService("RunService").Heartbeat:Connect(function()
+							if u163 then
+								return
+							end
+
+							local HumanoidRootPart = Character and Character:FindFirstChild("HumanoidRootPart")
+
+							if not HumanoidRootPart or not Handle or not Handle.Parent then
+								connection3:Disconnect()
+
+								return
+							end
+
+							if (HumanoidRootPart.Position - Handle.Position).Magnitude < 3.5 then
+								u163 = true
+								connection3:Disconnect()
+								task.wait(0.1)
+
+								if Handle then
+									Handle.CanCollide = false
+								end
+
+								v162.CanBeDropped = false
+								v162.Parent = LocalPlayer.Backpack
+								task.wait()
+								Humanoid:EquipTool(v162)
+							end
+						end)
+					end)
+					p48:addText("[Blox Fruit dropped.]")
+					p48:advanceAfterDelay(1.5)
+				end)
+			end)
+			p40:addOptionType("Chat", function(p49)
+				p49:setText("Store")
+				p49:jumpToPage(function(p50)
+					p50:addText("idk, update later. discord.gg/mozil")
+					p50:advanceAfterDelay(1.5)
+				end)
+			end)
+		end)
+		v154:build()
+		DialogueController.start(v154)
+	end
+
+	p36.Activated:Connect(function()
+		local ok3, result3 = pcall(v153)
+
+		if not ok3 then
+			warn("[X10Lucky] fruit dialogue failed:", result3)
+		end
+	end)
+end
+local function v168(p51)
+	local v169 = t16[p51.StorageName]
+	local Fruit = v169 and v169:FindFirstChild("Fruit")
+	local ItemId2 = p51.ItemId
+
+	if not Fruit or not ItemId2 then
+		return
+	end
+
+	local ok3, name = pcall(function()
+		return ItemConfig.tryGet(ItemId2).Index.DebugLabel
+	end)
+
+	if not ok3 or type(name) ~= "string" or name == "" then
+		name = p51.StorageName .. " [PhysicalMoveset-" .. tostring(ItemId2) .. "]"
+	end
+
+	local __ReplicatedSpinnerInstances = PlayerGui:FindFirstChild("__ReplicatedSpinnerInstances")
+
+	if not __ReplicatedSpinnerInstances then
+		__ReplicatedSpinnerInstances = Instance.new("ScreenGui")
+		__ReplicatedSpinnerInstances.Name = "__ReplicatedSpinnerInstances"
+		__ReplicatedSpinnerInstances.ResetOnSpawn = false
+		__ReplicatedSpinnerInstances.Parent = PlayerGui
+	end
+
+	local v175 = __ReplicatedSpinnerInstances:FindFirstChild(name)
+
+	if v175 then
+		v175:Destroy()
+	end
+
+	local clone = Fruit:Clone()
+
+	for _, descendant in ipairs(clone:GetDescendants()) do
+		if descendant:IsA("LuaSourceContainer") then
+			descendant:Destroy()
+		end
+	end
+
+	clone.Name = name
+
+	local RootPart = clone:FindFirstChild("RootPart")
+
+	if RootPart and not RootPart:IsA("BasePart") then
+		RootPart = nil
+	end
+
+	clone.PrimaryPart = RootPart or clone.PrimaryPart or clone:FindFirstChildWhichIsA("BasePart", true)
+
+	if not clone.PrimaryPart then
+		clone:Destroy()
+
+		return
+	end
+
+	clone:SetAttribute("ItemId", ItemId2)
+	clone:SetAttribute("__Size", clone:GetExtentsSize())
+	clone.Parent = __ReplicatedSpinnerInstances
+	task.spawn(function()
+		local Spinner = require(ReplicatedStorage.Controllers.UI.Spinner)
+		local now = tick()
+
+		while tick() - now < 5 and not Spinner:IsOpen() do
+			task.wait(0.1)
+		end
+
+		while tick() - now < 600 and Spinner:IsOpen() do
+			task.wait(0.5)
+		end
+
+		if clone.Parent then
+			clone:Destroy()
+		end
+	end)
+end
+local function v182(p52, p53)
+	local v183 = p52 and t14 or t13
+
+	if #v183 == 0 then
+		warn("[X10Lucky] reward pool empty, falling back to full list")
+		v183 = #t13 > 0 and t13 or t11
+	end
+
+	local v184 = v183[math.random(1, #v183)]
+
+	task.spawn(function()
+		if p52 and t15[v184.StorageName] then
+			local StorageName = v184.StorageName
+			local v186 = t16[StorageName]
+
+			if v186 then
+				local clone = v186:Clone()
+
+				clone.Name = v184.DisplayName .. " Fruit"
+				clone:SetAttribute("X10Fake", true)
+				v142(clone, StorageName, v184.DisplayName)
+				clone.Parent = LocalPlayer.Backpack
+				clone.Equipped:Connect(function()
+					local Fruit = clone:FindFirstChild("Fruit")
+
+					if not Fruit then
+						return
+					end
+
+					local AnimationController = Fruit:FindFirstChildWhichIsA("AnimationController")
+
+					if not AnimationController then
+						return
+					end
+
+					local Animator = AnimationController:FindFirstChildWhichIsA("Animator")
+					local Animation = Fruit:FindFirstChildWhichIsA("Animation", true)
+
+					if Animator and Animation then
+						local v192 = Animator:LoadAnimation(Animation)
+
+						v192.Looped = true
+						v192:Play()
+					end
+				end)
+			end
+		end
+
+		local ok3, result3 = pcall(v168, v184)
+
+		if not ok3 then
+			warn("[X10Lucky] injectPreviewModel failed:", result3)
+		end
+
+		local ok4, result4 = pcall(function()
+			require(ReplicatedStorage.Controllers.UI.Spinner):Open({ v184 }, t11, "ZiolesGacha")
+		end)
+
+		if not ok4 then
+			warn("[X10Lucky] Spinner:Open failed:", result4)
+		end
+
+		if p53 then
+			p53()
+		end
+	end)
+end
+local function v197(p54)
+	return game.Players.LocalPlayer.Data.Beli.Value >= p54
+end
+
+local n3 = 0
+local u199 = false
+local text
+local t17 = {}
+local t18 = {
+	btn = Color3.fromRGB(50, 185, 65),
+	stroke = Color3.fromRGB(27, 112, 36),
+	trans = Color3.fromRGB(76, 214, 90)
+}
+local t19 = {}
+
+local function v204()
+	return t7.bypassCash or t7.bypassTime
+end
+local function v205(p55, p56, p57)
+	if t19[p55] then
+		return
+	end
+
+	local t20 = {
+		prop = p56,
+		orig = p55[p56],
+		want = p57
+	}
+
+	t20.conn = p55:GetPropertyChangedSignal(p56):Connect(function()
+		if p55[p56] ~= t20.want then
+			t20.orig = p55[p56]
+			p55[p56] = t20.want
+		end
+	end)
+	t19[p55] = t20
+	p55[p56] = p57
+end
+local function v207()
+	for k, v in pairs(t19) do
+		v.conn:Disconnect()
+
+		if k.Parent then
+			k[v.prop] = v.orig
+		end
+	end
+
+	t19 = {}
+end
+local function v210(p58)
+	v205(p58, "BackgroundColor3", t18.btn)
+
+	local UIStroke = p58:FindFirstChildOfClass("UIStroke")
+
+	if UIStroke then
+		v205(UIStroke, "Color", t18.stroke)
+	end
+
+	local Trans = p58:FindFirstChild("Trans")
+
+	if Trans and Trans:IsA("Frame") then
+		v205(Trans, "BackgroundColor3", t18.trans)
+	end
+end
+local function v213(p59)
+	if t17[p59] then
+		return
+	end
+
+	local t21 = {
+		orig = p59.Text
+	}
+
+	t21.conn = p59:GetPropertyChangedSignal("Text"):Connect(function()
+		if text then
+			if p59.Text ~= text then
+				t21.orig = p59.Text
+				p59.Text = text
+			end
+		else
+			t21.orig = p59.Text
+		end
+	end)
+	t17[p59] = t21
+
+	if text then
+		p59.Text = text
+	end
+end
+local function v215(p60)
+	text = p60
+
+	for k, v in pairs(t17) do
+		if k.Parent then
+			k.Text = p60 or v.orig
+		end
+	end
+end
+local function v218()
+	text = nil
+
+	for k, v in pairs(t17) do
+		v.conn:Disconnect()
+
+		if k.Parent then
+			k.Text = v.orig
+		end
+	end
+
+	t17 = {}
+	v207()
+end
+local function v221(p61)
+	local FakeOverlay = p61:FindFirstChild("FakeOverlay")
+
+	if FakeOverlay then
+		FakeOverlay:Destroy()
+	end
+
+	local u223 = false
+	local TextButton = Instance.new("TextButton")
+
+	TextButton.Name = "FakeOverlay"
+	TextButton.Size = UDim2.fromScale(1, 1)
+	TextButton.BackgroundTransparency = 1
+	TextButton.Text = ""
+	TextButton.ZIndex = 100
+	TextButton.Active = true
+	TextButton.AutoButtonColor = false
+	TextButton.Parent = p61
+	TextButton.Activated:Connect(function()
+		if u223 then
+			return
+		end
+
+		if not t7.bypassCash and not v197(n3) then
+			v215(("Need $%s more"):format(TextUtil.commaValue(n3 - game.Players.LocalPlayer.Data.Beli.Value)))
+			task.delay(2, function()
+				if TextButton.Parent then
+					v215(t7.bypassCash and "FREE" or nil)
+				end
+			end)
+
+			return
+		end
+
+		u223 = true
+		task.delay(0.5, function()
+			u199 = false
+			TextButton:Destroy()
+			pcall(function()
+				GachaWindow:Close()
+			end)
+			task.delay(0.5, function()
+				local ok3, result3 = pcall(function()
+					return GachaWindow:IsOpen()
+				end)
+				local ZiolesGacha_Window = PlayerGui:FindFirstChild("ZiolesGacha_Window")
+
+				if ZiolesGacha_Window and ZiolesGacha_Window.Enabled and (not ok3 or result3) then
+					ZiolesGacha_Window.Enabled = false
+				end
+			end)
+			local okSpin, errSpin = pcall(v182, t7.boostLuck)
+
+			if not okSpin then
+				warn("[X10Lucky] spin failed:", errSpin)
+			end
+		end)
+	end)
+
+	for _, descendant in ipairs(p61:GetDescendants()) do
+		if descendant:IsA("TextLabel") then
+			v213(descendant)
+		end
+	end
+
+	if v204() then
+		v210(p61)
+	end
+end
+local function v230(p62)
+	if p62.Name == "PurchaseButton" and p62:IsA("GuiButton") then
+		if p62:FindFirstAncestor("ZiolesGacha_Window") and not p62:FindFirstChild("FakeOverlay") then
+			v221(p62)
+		end
+	elseif p62:IsA("TextLabel") and p62:FindFirstAncestor("PurchaseButton") and p62:FindFirstAncestor("ZiolesGacha_Window") then
+		v213(p62)
+	elseif v204() and p62.Parent and p62.Parent.Name == "PurchaseButton" and p62:FindFirstAncestor("ZiolesGacha_Window") then
+		if p62:IsA("UIStroke") then
+			v205(p62, "Color", t18.stroke)
+		elseif p62.Name == "Trans" and p62:IsA("Frame") then
+			v205(p62, "BackgroundColor3", t18.trans)
+		end
+	end
+end
+
+PlayerGui.DescendantAdded:Connect(function(descendant)
+	if u199 then
+		v230(descendant)
+	end
+end)
+GachaWindow.Open = function(p63, p64, p65, ...)
+	if p64 == "ZiolesGacha" then
+		v218()
+		u199 = false
+
+		if t7.boostLuck or t7.bypassCash or t7.bypassTime then
+			n3 = type(p65) == "table" and tonumber(p65.Value) or 0
+			u199 = true
+			text = t7.bypassCash and "FREE" or nil
+
+			local ZiolesGacha_Window = PlayerGui:FindFirstChild("ZiolesGacha_Window")
+
+			if ZiolesGacha_Window then
+				for _, descendant in ipairs(ZiolesGacha_Window:GetDescendants()) do
+					if descendant.Name == "FakeOverlay" then
+						descendant:Destroy()
+					end
+				end
+
+				for _, descendant in ipairs(ZiolesGacha_Window:GetDescendants()) do
+					v230(descendant)
+				end
+			end
+		end
+	end
+
+	if p64 == "ZiolesGacha" and u199 then
+		for _, v in ipairs({
+			0,
+			0.05,
+			0.15,
+			0.3,
+			0.6
+		}) do
+			task.delay(v, function()
+				if not u199 then
+					return
+				end
+
+				local ZiolesGacha_Window = PlayerGui:FindFirstChild("ZiolesGacha_Window")
+
+				if ZiolesGacha_Window then
+					for _, descendant in ipairs(ZiolesGacha_Window:GetDescendants()) do
+						v230(descendant)
+					end
+				end
+			end)
+		end
+	end
+
+	local v241 = table.pack(...)
+	local v242 = Open
+
+	v241.n = 4 + v241.n - 1
+	table.move(v241, 1, v241.n, 4, v241)
+	v241[1] = p63
+	v241[2] = p64
+	v241[3] = p65
+
+	return v242(table.unpack(v241, 1, v241.n))
+end
+
+local X10LuckyUI = PlayerGui:FindFirstChild("X10LuckyUI")
+
+if X10LuckyUI then
+	X10LuckyUI:Destroy()
+end
+
+local X10LoadingUI = PlayerGui:FindFirstChild("X10LoadingUI")
+
+if X10LoadingUI then
+	X10LoadingUI:Destroy()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+
+ScreenGui.Name = "X10LuckyUI"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.DisplayOrder = 999
+ScreenGui.IgnoreGuiInset = true
+ScreenGui.Enabled = false
+ScreenGui.Parent = PlayerGui
+
+local Frame = Instance.new("Frame")
+
+Frame.Size = UDim2.new(0, 230, 0, 190)
+Frame.Position = UDim2.new(0, 10, 0.5, -95)
+Frame.BackgroundColor3 = Color3.fromRGB(18, 18, 28)
+Frame.BorderSizePixel = 0
+Frame.Parent = ScreenGui
+Instance.new("UICorner", Frame).CornerRadius = UDim.new(0, 12)
+
+local UIStroke = Instance.new("UIStroke", Frame)
+
+UIStroke.Color = Color3.fromRGB(70, 70, 110)
+UIStroke.Thickness = 1.5
+
+local Frame2 = Instance.new("Frame")
+
+Frame2.Size = UDim2.new(1, 0, 0, 38)
+Frame2.BackgroundColor3 = Color3.fromRGB(28, 28, 48)
+Frame2.BorderSizePixel = 0
+Frame2.Parent = Frame
+Instance.new("UICorner", Frame2).CornerRadius = UDim.new(0, 12)
+
+local TextLabel = Instance.new("TextLabel")
+
+TextLabel.Size = UDim2.fromScale(1, 1)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Text = "✨  X100 Lucky Script"
+TextLabel.TextColor3 = Color3.fromRGB(255, 215, 80)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.TextSize = 16
+TextLabel.Parent = Frame2
+
+local u250
+local Position
+local Position2
+
+Frame2.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		u250 = true
+		Position = input.Position
+		Position2 = Frame.Position
+	end
+end)
+UserInputService.InputChanged:Connect(function(input)
+	if u250 and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+		local v253 = input.Position - Position
+
+		Frame.Position = UDim2.new(Position2.X.Scale, Position2.X.Offset + v253.X, Position2.Y.Scale, Position2.Y.Offset + v253.Y)
+	end
+end)
+UserInputService.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		u250 = false
+	end
+end)
+
+local t22 = {
+	{
+		key = "boostLuck",
+		label = "🍀 Boost Luck",
+		color = Color3.fromRGB(80, 200, 80)
+	},
+	{
+		key = "bypassTime",
+		label = "⏰ Bypass Waiting Time",
+		color = Color3.fromRGB(80, 160, 255)
+	},
+	{
+		key = "bypassCash",
+		label = "💰 Bypass Cash",
+		color = Color3.fromRGB(255, 200, 50)
+	}
+}
+local Frame3 = Instance.new("Frame")
+
+Frame3.Size = UDim2.new(1, -20, 1, -48)
+Frame3.Position = UDim2.new(0, 10, 0, 44)
+Frame3.BackgroundTransparency = 1
+Frame3.Parent = Frame
+Instance.new("UIListLayout", Frame3).Padding = UDim.new(0, 8)
+
+for _, v in ipairs(t22) do
+	local Frame4 = Instance.new("Frame")
+
+	Frame4.Size = UDim2.new(1, 0, 0, 38)
+	Frame4.BackgroundColor3 = Color3.fromRGB(28, 28, 45)
+	Frame4.BorderSizePixel = 0
+	Frame4.Parent = Frame3
+	Instance.new("UICorner", Frame4).CornerRadius = UDim.new(0, 8)
+
+	local TextLabel2 = Instance.new("TextLabel")
+
+	TextLabel2.Size = UDim2.new(1, -60, 1, 0)
+	TextLabel2.Position = UDim2.new(0, 12, 0, 0)
+	TextLabel2.BackgroundTransparency = 1
+	TextLabel2.Text = v.label
+	TextLabel2.TextColor3 = Color3.fromRGB(210, 210, 210)
+	TextLabel2.Font = Enum.Font.Gotham
+	TextLabel2.TextSize = 13
+	TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+	TextLabel2.Parent = Frame4
+
+	local TextButton = Instance.new("TextButton")
+
+	TextButton.Size = UDim2.new(0, 46, 0, 26)
+	TextButton.AnchorPoint = Vector2.new(1, 0.5)
+	TextButton.Position = UDim2.new(1, -10, 0.5, 0)
+	TextButton.BackgroundColor3 = Color3.fromRGB(55, 55, 75)
+	TextButton.BorderSizePixel = 0
+	TextButton.Text = ""
+	TextButton.Parent = Frame4
+	Instance.new("UICorner", TextButton).CornerRadius = UDim.new(1, 0)
+
+	local Frame5 = Instance.new("Frame")
+
+	Frame5.Size = UDim2.new(0, 20, 0, 20)
+	Frame5.AnchorPoint = Vector2.new(0, 0.5)
+	Frame5.Position = UDim2.new(0, 3, 0.5, 0)
+	Frame5.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+	Frame5.BorderSizePixel = 0
+	Frame5.Parent = TextButton
+	Instance.new("UICorner", Frame5).CornerRadius = UDim.new(1, 0)
+
+	local function v262(p66)
+		t7[v.key] = p66
+		TweenService:Create(TextButton, TweenInfo.new(0.15), {
+			BackgroundColor3 = p66 and v.color or Color3.fromRGB(55, 55, 75)
+		}):Play()
+		TweenService:Create(Frame5, TweenInfo.new(0.15), {
+			Position = p66 and UDim2.new(1, -23, 0.5, 0) or UDim2.new(0, 3, 0.5, 0),
+			BackgroundColor3 = p66 and Color3.new(1, 1, 1) or Color3.fromRGB(160, 160, 160)
+		}):Play()
+	end
+
+	TextButton.Activated:Connect(function()
+		v262(not t7[v.key])
+	end)
+end
+
+local ScreenGui2 = Instance.new("ScreenGui")
+
+ScreenGui2.Name = "X10LoadingUI"
+ScreenGui2.ResetOnSpawn = false
+ScreenGui2.DisplayOrder = 1000
+ScreenGui2.IgnoreGuiInset = true
+ScreenGui2.Parent = PlayerGui
+
+local Frame4 = Instance.new("Frame")
+
+Frame4.Size = UDim2.fromScale(1, 1)
+Frame4.BackgroundColor3 = Color3.fromRGB(8, 8, 12)
+Frame4.BackgroundTransparency = 0.25
+Frame4.BorderSizePixel = 0
+Frame4.Parent = ScreenGui2
+
+local Frame5 = Instance.new("Frame")
+
+Frame5.Size = UDim2.new(0, 300, 0, 88)
+Frame5.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame5.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame5.BackgroundColor3 = Color3.fromRGB(15, 17, 22)
+Frame5.BorderSizePixel = 0
+Frame5.Parent = Frame4
+Instance.new("UICorner", Frame5).CornerRadius = UDim.new(0, 12)
+
+local UIStroke2 = Instance.new("UIStroke", Frame5)
+
+UIStroke2.Color = Color3.fromRGB(42, 45, 54)
+UIStroke2.Thickness = 1
+
+local TextLabel2 = Instance.new("TextLabel")
+
+TextLabel2.Size = UDim2.new(1, -32, 0, 18)
+TextLabel2.Position = UDim2.new(0, 16, 0, 14)
+TextLabel2.BackgroundTransparency = 1
+TextLabel2.Text = "Loading fruit models"
+TextLabel2.TextColor3 = Color3.fromRGB(242, 244, 247)
+TextLabel2.Font = Enum.Font.Gotham
+TextLabel2.TextSize = 13
+TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel2.Parent = Frame5
+
+local Frame6 = Instance.new("Frame")
+
+Frame6.Size = UDim2.new(1, -32, 0, 4)
+Frame6.Position = UDim2.new(0, 16, 0, 42)
+Frame6.BackgroundColor3 = Color3.fromRGB(42, 45, 54)
+Frame6.BorderSizePixel = 0
+Frame6.Parent = Frame5
+Instance.new("UICorner", Frame6).CornerRadius = UDim.new(1, 0)
+
+local Frame7 = Instance.new("Frame")
+
+Frame7.Size = UDim2.fromScale(0, 1)
+Frame7.BackgroundColor3 = Color3.fromRGB(139, 92, 246)
+Frame7.BorderSizePixel = 0
+Frame7.Parent = Frame6
+Instance.new("UICorner", Frame7).CornerRadius = UDim.new(1, 0)
+
+local TextLabel3 = Instance.new("TextLabel")
+
+TextLabel3.Size = UDim2.new(1, -32, 0, 16)
+TextLabel3.Position = UDim2.new(0, 16, 0, 56)
+TextLabel3.BackgroundTransparency = 1
+TextLabel3.Text = "Please wait..."
+TextLabel3.TextColor3 = Color3.fromRGB(139, 147, 161)
+TextLabel3.Font = Enum.Font.Gotham
+TextLabel3.TextSize = 11
+TextLabel3.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel3.Parent = Frame5
+
+for _, v in ipairs({
+	LocalPlayer.Backpack,
+	LocalPlayer.Character
+}) do
+	for _, child in ipairs(v:GetChildren()) do
+		if child:IsA("Tool") and child:GetAttribute("X10Fake") then
+			child:Destroy()
+		end
+	end
+end
+
+task.spawn(function()
+	local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	local v276 = v81()
+	local t23 = {}
+
+	for _, v in pairs(v276) do
+		local v280 = v.Type == "Blox Fruit"
+
+		if v280 then
+			v280 = (v.Rarity or 0) == 4
+		end
+
+		if v280 then
+			table.insert(t23, v)
+		end
+	end
+
+	local v281 = #t23
+
+	TextLabel2.Text = "Syncing inventory data..."
+	TextLabel3.Text = string.format("Found %d items to process", v281)
+
+	for i, v in ipairs(t23) do
+		local Name = v.Name or v.DisplayName .. "-" .. v.DisplayName
+		local DisplayName = v.DisplayName or Name
+
+		TextLabel2.Text = string.format("Loading fruit models  %d/%d", i, v281)
+		TextLabel3.Text = "Models only, your items stay safe."
+		TweenService:Create(Frame7, TweenInfo.new(0.2), {
+			Size = UDim2.fromScale((i - 1) / v281, 1)
+		}):Play()
+
+		if __ReplicatedFruits:FindFirstChild(Name) then
+			t15[Name] = true
+		else
+			pcall(function()
+				CommF_:InvokeServer("LoadFruit", Name)
+			end)
+
+			local v286
+			local now = tick()
+
+			while tick() - now < 3 do
+				local v288 = LocalPlayer.Backpack:FindFirstChild(DisplayName .. " Fruit") or LocalPlayer.Backpack:FindFirstChild(v.Name .. " Fruit")
+
+				if v288 then
+					v286 = v288
+
+					break
+				end
+
+				task.wait(0.1)
+			end
+
+			if v286 then
+				local clone = v286:Clone()
+
+				clone.Name = Name
+				clone.Parent = __ReplicatedFruits
+				t15[Name] = true
+				pcall(function()
+					local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+
+					if Humanoid then
+						Humanoid:EquipTool(v286)
+						task.wait(1)
+
+						local LocalPlayerName = workspace.Characters:FindFirstChild(LocalPlayer.Name)
+
+						if LocalPlayerName then
+							LocalPlayerName = LocalPlayerName:FindFirstChild(DisplayName .. " Fruit") or LocalPlayerName:FindFirstChild(v.Name .. " Fruit")
+						end
+
+						if LocalPlayerName then
+							local clone2 = LocalPlayerName:Clone()
+
+							clone2.Name = Name
+
+							local Fruit = clone2:FindFirstChild("Fruit")
+							local RootPart = Fruit and Fruit:FindFirstChild("RootPart")
+
+							if RootPart then
+								for _, descendant in ipairs(Fruit:GetDescendants()) do
+									if descendant:IsA("BasePart") and descendant ~= RootPart and not descendant:FindFirstChildWhichIsA("WeldConstraint") then
+										local WeldConstraint = Instance.new("WeldConstraint")
+
+										WeldConstraint.Part0 = RootPart
+										WeldConstraint.Part1 = descendant
+										WeldConstraint.Parent = descendant
+									end
+								end
+							end
+
+							t16[Name] = clone2
+							CommF_:InvokeServer("StoreFruit", Name, LocalPlayerName)
+						end
+					end
+				end)
+				task.wait(0.8)
+			end
+		end
+	end
+
+	for i = #t14, 1, -1 do
+		t14[i] = nil
+	end
+
+	for _, v in ipairs(t12) do
+		if t15[v.StorageName] then
+			table.insert(t14, v)
+		end
+	end
+
+	warn("[X10Lucky] MYTH pool:", #t14, "entries")
+	ScreenGui2:Destroy()
+	ScreenGui.Enabled = true
+	warn("[X10Lucky] Preload done:", v281, "mythicals")
+end)
